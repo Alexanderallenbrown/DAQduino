@@ -18,7 +18,8 @@ DAQduino::DAQduino(int insamples, int inusdelay){
     haveData = false;
 }
 
-void DAQduino::record(int pin){
+void DAQduino::update(bool rec, int pin){
+    if(rec&&!oldrec){
     if(!haveData){
         haveData = true;
         for(int k = 0; k<samples; k++){
@@ -27,6 +28,8 @@ void DAQduino::record(int pin){
             delayMicroseconds(usdelay);
         }
     }
+    oldrec = rec;
+}
 }
 
 void DAQduino::printData(bool printTimes){

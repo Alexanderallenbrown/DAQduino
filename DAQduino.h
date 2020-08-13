@@ -15,7 +15,7 @@ class DAQduino
 {
 public:
     DAQduino(int insamples, int inusdelay);
-    void record(int pin);
+    void update(bool rec, int pin);
     void printData(bool printTimes);
     void clearData();
     int vals[500];
@@ -24,8 +24,12 @@ public:
     int samples;
     int usdelay;
 
+private:
+    bool oldrec;
 
 };
+
+
 
 
 
