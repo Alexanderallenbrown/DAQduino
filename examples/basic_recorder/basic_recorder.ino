@@ -25,6 +25,5 @@ void loop(){
     //record data if recVal is true
     //argument for record is the analog pin you wish to read
     DAQ.update(recVal,8);
-    //now print our data to the serial monitor to copy/paste into a file.
 
 }
