@@ -7,7 +7,9 @@
 DAQduino DAQ = DAQduino(100,1);
 
 //which pin will you use to trigger the recording?
-int recPin = 23;
+int switchPin = 23;
+//which analog pin will be used to record voltages?
+int recPin = 8;
 
 //initialize a variable to hold whether we want to be recording or not.
 bool recVal = false;
@@ -21,9 +23,9 @@ void setup(){
 
 void loop(){
     //read the pin we're using to trigger
-    recVal = digitalRead(recPin);
+    recVal = digitalRead(switchPin);
     //record data if recVal is true
     //argument for record is the analog pin you wish to read
-    DAQ.update(recVal,8);
+    DAQ.update(recVal,recPin);
 
 }

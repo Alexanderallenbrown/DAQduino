@@ -29,6 +29,7 @@ void DAQduino::update(bool rec, int pin){
             }
         }
         printData(true);
+        clearData();
     }
     oldrec = rec;
 }
