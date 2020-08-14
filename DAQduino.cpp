@@ -20,16 +20,17 @@ DAQduino::DAQduino(int insamples, int inusdelay){
 
 void DAQduino::update(bool rec, int pin){
     if(rec&&!oldrec){
-    if(!haveData){
-        haveData = true;
-        for(int k = 0; k<samples; k++){
-            vals[k] = analogRead(pin);
-            times[k] = micros();
-            delayMicroseconds(usdelay);
+        if(!haveData){
+            haveData = true;
+            for(int k = 0; k<samples; k++){
+                vals[k] = analogRead(pin);
+                times[k] = micros();
+                delayMicroseconds(usdelay);
+            }
         }
+        printData(true);
     }
     oldrec = rec;
-}
 }
 
 void DAQduino::printData(bool printTimes){
